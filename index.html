@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔍 Regex Explorer</h1>
+
+    <div class="box">
+        <label>Pattern</label>
+        <input type="text" id="pattern" placeholder="e.g. ^a*b$">
+        <button onclick="loadExample()">Load Example</button>
+    </div>
+
+    <div class="box">
+        <label>Test Data</label>
+        <textarea id="inputStrings" placeholder="Enter each string on new line"></textarea>
+    </div>
+
+    <button onclick="analyze()">Analyze</button>
+
+    <div id="resultBox"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
