@@ -44,53 +44,33 @@ function insertSymbol(symbol) {
     input.value += symbol;
 }
 
-// SAMPLE STRINGS
+// SAMPLE STRING GENERATION (heuristic)
 function generateStrings() {
     const pattern = document.getElementById("pattern").value;
     const resultBox = document.getElementById("resultBox");
 
     resultBox.innerHTML = "<h4>Generated Strings (Approx):</h4>";
 
-    if (!pattern) {
-        resultBox.innerHTML += "Enter a regex first.";
-        return;
-    }
-
     let samples = [];
 
-    // Case 1: a*b
     if (pattern.includes("a*") && pattern.includes("b")) {
         samples = ["b", "ab", "aaab"];
-    }
-
-    // Case 2: digits
-    else if (pattern.includes("\\d")) {
+    } else if (pattern.includes("\\d")) {
         samples = ["1", "123", "4567"];
-    }
-
-    // Case 3: starts with ab
-    else if (pattern.includes("ab")) {
-        samples = ["ab", "abc", "abxyz"];
-    }
-
-    // Case 4: OR operator
-    else if (pattern.includes("|")) {
+    } else if (pattern.includes("|")) {
         const parts = pattern.split("|");
         samples = parts.map(p => p.replace(/[^a-z]/gi, ""));
-    }
-
-    // Default fallback
-    else {
+    } else {
         samples = ["test", "example", "sample"];
     }
 
-    // Display
     samples.forEach(s => {
         const div = document.createElement("div");
         div.innerText = s;
         resultBox.appendChild(div);
     });
 }
+
 // LOAD EXAMPLE
 function loadExample() {
     document.getElementById("pattern").value = "^a*b$";
@@ -98,7 +78,7 @@ function loadExample() {
         "b\nab\naaab\naabbb";
 }
 
-// EQUIVALENCE CHECK
+// EQUIVALENCE
 function checkEquivalence() {
     const r1 = new RegExp(document.getElementById("regex1").value);
     const r2 = new RegExp(document.getElementById("regex2").value);
@@ -114,7 +94,7 @@ function checkEquivalence() {
     }
 
     document.getElementById("equivResult").innerText =
-        equivalent ? "Likely Equivalent" : "Not Equivalent";
+        equivalent ? "Equivalent for tested cases" : "Not Equivalent";
 }
 
 // THEORY PANEL
@@ -126,7 +106,7 @@ function showTheory(topic) {
     } else if (topic === "language") {
         content.innerHTML = "A regular language is a set of strings accepted by a finite automaton.";
     } else if (topic === "automata") {
-        content.innerHTML = "Regex → NFA → DFA → same language. All are equivalent.";
+        content.innerHTML = "Regex → NFA → DFA → same language.";
     } else if (topic === "symbols") {
         content.innerHTML = "* = zero or more, + = one or more, | = OR, ^ = start, $ = end.";
     }
