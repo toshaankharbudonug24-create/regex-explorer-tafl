@@ -6,23 +6,45 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>🔍 Regex Explorer</h1>
+<div class="main">
 
-    <div class="box">
-        <label>Pattern</label>
-        <input type="text" id="pattern" placeholder="e.g. ^a*b$">
+    <!-- LEFT: APP -->
+    <div class="container">
+        <h1>🔍 Regex Explorer</h1>
+
+        <div class="box">
+            <label>Pattern</label>
+            <input type="text" id="pattern" placeholder="e.g. ^a*b$">
+        </div>
+
+        <div class="box">
+            <label>Test Data</label>
+            <textarea id="inputStrings" placeholder="Enter strings (one per line)"></textarea>
+        </div>
+
+        <button onclick="analyze()">Analyze</button>
         <button onclick="loadExample()">Load Example</button>
+
+        <h3>Results</h3>
+        <div id="resultBox"></div>
     </div>
 
-    <div class="box">
-        <label>Test Data</label>
-        <textarea id="inputStrings" placeholder="Enter each string on new line"></textarea>
+    <!-- RIGHT: THEORY PANEL -->
+    <div class="theory">
+        <h2>Theory</h2>
+
+        <select onchange="showTheory(this.value)">
+            <option value="intro">What is Regex?</option>
+            <option value="language">Regular Language</option>
+            <option value="automata">Regex & Automata</option>
+            <option value="symbols">Regex Symbols</option>
+        </select>
+
+        <div id="theoryContent">
+            Select a topic to view explanation.
+        </div>
     </div>
 
-    <button onclick="analyze()">Analyze</button>
-
-    <div id="resultBox"></div>
 </div>
 
 <script src="app.js"></script>
