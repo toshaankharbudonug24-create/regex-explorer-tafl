@@ -8,13 +8,23 @@
 
 <div class="main">
 
-    <!-- LEFT: APP -->
+    <!-- LEFT SIDE -->
     <div class="container">
         <h1>🔍 Regex Explorer</h1>
 
         <div class="box">
             <label>Pattern</label>
             <input type="text" id="pattern" placeholder="e.g. ^a*b$">
+        </div>
+
+        <!-- PALETTE -->
+        <div class="box">
+            <label>Quick Insert</label><br>
+            <button onclick="insertSymbol('*')">*</button>
+            <button onclick="insertSymbol('+')">+</button>
+            <button onclick="insertSymbol('|')">|</button>
+            <button onclick="insertSymbol('^')">^</button>
+            <button onclick="insertSymbol('$')">$</button>
         </div>
 
         <div class="box">
@@ -24,12 +34,22 @@
 
         <button onclick="analyze()">Analyze</button>
         <button onclick="loadExample()">Load Example</button>
+        <button onclick="generateStrings()">Generate Sample Strings</button>
 
         <h3>Results</h3>
         <div id="resultBox"></div>
+
+        <!-- EQUIVALENCE -->
+        <div class="box">
+            <h3>Check Equivalence</h3>
+            <input type="text" id="regex1" placeholder="Regex 1"><br>
+            <input type="text" id="regex2" placeholder="Regex 2"><br>
+            <button onclick="checkEquivalence()">Check</button>
+            <div id="equivResult"></div>
+        </div>
     </div>
 
-    <!-- RIGHT: THEORY PANEL -->
+    <!-- RIGHT SIDE THEORY -->
     <div class="theory">
         <h2>Theory</h2>
 

@@ -2,17 +2,24 @@ body {
     background: #0f172a;
     color: white;
     font-family: Arial;
+    margin: 0;
+    padding: 20px;
+}
+
+.main {
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
+    gap: 40px;
 }
 
 .container {
     width: 400px;
 }
 
-h1 {
-    text-align: center;
+.theory {
+    width: 300px;
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .box {
@@ -21,27 +28,19 @@ h1 {
 
 input, textarea {
     width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
+    padding: 8px;
     margin-top: 5px;
+    border-radius: 6px;
+    border: none;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
     margin-top: 5px;
-    background: #22c55e;
+    padding: 8px;
     border: none;
-    border-radius: 8px;
-    font-weight: bold;
+    border-radius: 6px;
+    background: #22c55e;
     cursor: pointer;
-}
-
-.explanation {
-    background: #1e293b;
-    padding: 10px;
-    border-radius: 8px;
 }
 
 #resultBox {
@@ -50,7 +49,7 @@ button {
 
 .result {
     margin-top: 8px;
-    padding: 10px;
+    padding: 8px;
     border-radius: 6px;
 }
 
@@ -65,26 +64,4 @@ button {
 .highlight {
     color: #22c55e;
     font-weight: bold;
-}
-.main {
-    display: flex;
-    gap: 40px;
-}
-
-.theory {
-    width: 300px;
-    background: #1e293b;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.theory select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-#theoryContent {
-    font-size: 14px;
-    line-height: 1.5;
 }
